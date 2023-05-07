@@ -19,7 +19,6 @@ class HomeController extends AbstractController
     {
         $random = $cardDistribution->getRandom();
         $response = ['random' => $random] + $sortCard->sortCard(cards: $random, type: 'random');
-       dump($response);
         return $this->render('index.html.twig',
             $response
         );
