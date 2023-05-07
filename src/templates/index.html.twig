@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1 style="text-align:center">Main non triée</h1><br>
+    <div class="grid-container">
+    {% for card in random %}
+        {% set redOrBlack = card.color.red ? 'red': 'black' %}
+        <div class="grid-item">
+            <div class="top-left">{{ card.value.label }}<br>
+                <div style="color:{{ redOrBlack }}">{{ card.color.symbol }}</div>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class="{{ card.color.label }}">{{ card.color.symbol }}</div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+            <div class="bottom-right">{{ card.value.label }}<br>
+                <div style="color:{{ redOrBlack }};">{{ card.color.symbol }}</div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <h1 style="text-align:center"> Ordre Aléatoire des couleurs</h1><br>
+    <div class="grid-container">
+        {% for card in sortColor %}
+            {% set redOrBlack = card.red ? 'red': 'black' %}
+            <div class="grid-item">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="{{  card.label }}">{{ card.symbol }}</div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        {% endfor %}
+
+    </div>
+    <h1 style="text-align:center"> Ordre Aléatoire des valeur</h1><br>
+    <div class="grid-container">
+        {% for card in sortValue %}
+            <div class="grid-item">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="{{  card.label }}">{{ card.label }}</div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <h1 style="text-align:center">Main Triée</h1><br>
+    <div class="grid-container">
+        {% for card in sorted %}
+            {% set redOrBlack = card.color.red ? 'red': 'black' %}
+            <div class="grid-item">
+                <div class="top-left">{{ card.value.label }}<br>
+                    <div style="color:{{ redOrBlack }}">{{ card.color.symbol }}</div>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="{{  card.color.label }}">{{ card.color.symbol }}</div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="bottom-right">{{ card.value.label }}<br>
+                    <div style="color:{{ redOrBlack }};">{{ card.color.symbol }}</div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
