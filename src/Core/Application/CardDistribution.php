@@ -18,16 +18,6 @@ class CardDistribution
         $allCards = Card::getAllCards();
         shuffle($allCards);
 
-        $pickedKeys = array_rand($allCards, self::CARD_NUMBER);
-
-        return array_filter(
-            $allCards,
-            function ($key) use ($pickedKeys) {
-                return in_array($key, $pickedKeys, true);
-                },
-            ARRAY_FILTER_USE_KEY,
-        );
+        return array_slice($allCards, 0, self::CARD_NUMBER);
     }
-
-
 }
